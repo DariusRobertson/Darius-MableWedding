@@ -1,3 +1,15 @@
+/* ensures now horizontal overflow on the entire screen */
+
+*, *::before, *::after {box-sizing: border-box;}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
 .page{
     margin: 0; 
     scroll-snap-type: y mandatory;
@@ -17,12 +29,6 @@
 
 }
 
-.color-sectcions{
-    min-height: 100vh;
-    padding: 60px;
-    display: flex;
-
-}
 
 .container::before{
     content: "";
