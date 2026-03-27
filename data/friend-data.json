@@ -1,0 +1,29 @@
+{
+    "invitees": [
+        {
+            "firstName": "David",
+            "lastName": "Gomez",
+            "plus-1": true,
+            "B-party": false,
+            "rsvpStatus": "pending"
+        },
+
+        {
+            "firstName": "Brittney",
+            "lastName": "Gomez",
+            "plus-1": true,
+            "b-party": false,
+            "rsvpStatus": "pending"
+        },
+
+        {
+            "firstName": "Bryce",
+            "lastName": "Mayer",
+            "plus-1": true,
+            "b-party":false,
+            "rsvpStatus": "pending"
+        }
+
+    ]
+}
+
