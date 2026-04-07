@@ -4,24 +4,61 @@
             "firstName": "David",
             "lastName": "Gomez",
             "plus-1": true,
-            "B-party": false,
-            "rsvpStatus": "pending"
+            "rsvpStatus": "pending",
+            "code": "David",
+            "customMessage": "David & Brittney, you are invited!"
         },
 
         {
             "firstName": "Brittney",
             "lastName": "Gomez",
             "plus-1": true,
-            "b-party": false,
-            "rsvpStatus": "pending"
+            "rsvpStatus": "pending",
+            "code": "Brittney",
+            "customMessage": "David & Brittney, you are invited!",
+            "guestName": "David"
         },
 
         {
             "firstName": "Bryce",
             "lastName": "Mayer",
             "plus-1": true,
-            "b-party":false,
-            "rsvpStatus": "pending"
+            "rsvpStatus": "pending",
+            "code": "Bryce",
+            "customMessage": "Bryce & Rosalia, you are invited!",
+            "guestName": "Rosalia"
+
+        },
+
+        {
+            "firstName": "Akitta",
+            "lastName": "Robertson",
+            "plus-1": true,
+            "rsvpStatus": "pending",
+            "code": "Akitta",
+            "customMessage": "Mom + KJ + Alexis",
+            "guestName": "KJ And Alexis"
+
+        },
+
+        {
+            "firstName": "Wolfgang",
+            "lastName": "Weber",
+            "plus-1": true,
+            "rsvpStatus": "pending",
+            "code": "Woflgang",
+            "customMessage": "Wolf & Sam, you are invited!"
+
+        },
+
+        {
+            "firstName": "Sam",
+            "lastName": "Weber",
+            "plus-1": true,
+            "rsvpStatus": "pending",
+            "code": "Sam",
+            "customMessage": "Sam and Wolf, you are invited!"
+
         }
 
     ]
