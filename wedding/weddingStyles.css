@@ -65,7 +65,7 @@
 
 #customMessage {
   margin: 0;
-  color: #efc1a6;
+  color: black;
   font-family: "Ms Madi", cursive;
   font-style: normal;
   font-size: clamp(3rem, 2vw, 1.6rem);
@@ -140,13 +140,24 @@
 
 .what-when-where-section {
     width: 100%;
-    margin-top: 25px;
     padding: 40px 20px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    background-color: #111;
+}
+
+.what-when-where-section-1 {
+    width: 100%;
+    padding: 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: rgb(83, 81, 81)
 }
 
 .detail-block {
@@ -156,7 +167,7 @@
 .detail-title {
   font-family: "Ms Madi", cursive;
   font-size: 2rem;
-  color: #e6a57e;
+  color: white;
   margin: 0;
 }
 
@@ -164,7 +175,7 @@
   margin-top: 6px;
   font-size: 1.75rem;
   font-family: "Ms Madi", cursive;
-  color: #2c2c2c;
+  color: white;
   letter-spacing: 0.5px;
 }
 
@@ -327,6 +338,35 @@
 
   .lookup-card h1 {
     text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .invite-hero {
+    padding-top: 60px;
+  }
+
+  .invite-wrapper {
+    max-width: 100%;
+    padding: 12px;
+  }
+
+  .invite-image-wrap {
+    width: 100%;
+  }
+
+  .invite-name-block {
+    top: 1.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 58%;
+    z-index: 2;
+  }
+
+  #customMessage {
+    font-size: clamp(0.7rem, 5vw, 1.5rem);
+    line-height: 0.95;
+    letter-spacing: 0;
   }
 }
 
