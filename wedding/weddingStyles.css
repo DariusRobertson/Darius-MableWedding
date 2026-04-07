@@ -1,0 +1,335 @@
+.container1-wedding::before {
+  content: none !important;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.invite-hero {
+  background: #f4f1ed;
+  padding-top: 70px; /* space for navbar if fixed */
+}
+
+.invite-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10vh;
+  background-image: url("../images/mable-darius1.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 35%;
+  overflow: hidden;
+}
+
+.invite-image-wrap {
+  position: relative;
+  width: 100%;
+  height: calc(100svh - 70px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.invite-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.invite-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+
+.invite-name-block {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  text-align: center;
+  z-index: 2;
+  pointer-events: none;
+  
+}
+
+#customMessage {
+  margin: 0;
+  color: #efc1a6;
+  font-family: "Ms Madi", cursive;
+  font-style: normal;
+  font-size: clamp(3rem, 2vw, 1.6rem);
+  line-height: 1.15;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+
+.lookup-card{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.lookup-card input{
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+}
+ 
+.lookup-card button{ 
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #f8d7c4;
+  cursor: pointer;
+}
+
+.lookup-card form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.container1-wedding{
+    background-image: url("../images/Mable-darius-invite-draw.jpg");
+    place-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom: 2px solid #1a1a1a;
+
+    background-size: cover;
+    background-position: center 45%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.rsvp-section {
+  background: #f6f0e6;
+  color: #2e1712;
+  padding: 80px 20px;
+}
+
+.ivite-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto; 
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.what-when-where-section {
+    width: 100%;
+    margin-top: 25px;
+    padding: 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.detail-block {
+  text-align: center;
+}
+
+.detail-title {
+  font-family: "Ms Madi", cursive;
+  font-size: 2rem;
+  color: #e6a57e;
+  margin: 0;
+}
+
+.detail-text {
+  margin-top: 6px;
+  font-size: 1.75rem;
+  font-family: "Ms Madi", cursive;
+  color: #2c2c2c;
+  letter-spacing: 0.5px;
+}
+
+
+.detail-divider {
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #111,
+    transparent
+  );
+  opacity: 0.5;
+}
+
+.rsvp-card {
+  width: min(700px, 92%);
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.rsvp-title {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.rsvp-guest-line {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 1rem;
+  color: #6b5b53;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size:1rem;
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 150px;
+}
+
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.radio-group input[type="radio"] {
+  accent-color: #f8d7c4;
+  transform: scale(1.2);
+}
+
+.radio-option {
+  color: #2c2c2c; /* FIX: readable */
+  font-weight: 500;
+}
+
+.radio-option.accept {
+  color: #2e7d32; /* elegant green */
+}
+
+.radio-option.decline {
+  color: #a94442; /* soft red */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 14px;
+  border: 1px solid #d8d0c7;
+  border-radius: 10px;
+  font: inherit;
+}
+
+.rsvp-btn {
+  align-self: flex-start;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #8f7d74;
+  color: white;
+  cursor: pointer;
+}
+
+.form-group textarea {
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+}
+
+.rsvp-btn:hover {
+  opacity: 0.95;
+}
+
+.rsvp-message {
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+
+/* Mobile changes */
+
+@media (max-width: 600px) {
+  .rsvp-card {
+    padding: 22px 18px;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .rsvp-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .lookup-card form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lookup-card input,
+  .lookup-card button {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .lookup-card h1 {
+    text-align: center;
+  }
+}
+
+
+
+

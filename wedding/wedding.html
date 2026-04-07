@@ -5,24 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Darius and Mable’s Wedding</title>
   <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="weddingStyles.css"/>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap" rel="stylesheet">
+
 </head>
+<script src="../data/wedding.js" defer></script>
 
 <body class="page syncopate-regular">
 
 <nav class="navbar">
     <ul class="nav-links">
+      <li><a href="wedding.html" class="syncopate-regular">RSVP</a></li>
       <li><a href="dressCode.html" class="syncopate-regular">Dress Code</a></li>
       <li><a href="registry.html" class="syncopate-regular">Registery</a></li>
-      <li><a href="wedding.html" class="syncopate-regular">Home</a></li>
       <li><a href="FAQ.html" class="syncopate-regular">FAQ</a></li>
     </ul>
 </nav>
 
-<section class="container container1">
-    <h1 class="title">Darius and Mable’s Wedding</h1>
-    <p class="date">November 14th</p>
-    <p class="adventure">Fall '26</p>
+<section class="invite-hero">
+    <div class="invite-image-wrap">
+      <img 
+        src="../images/Mable-darius-invite-draw.jpg"
+        alt="Wedding invitation artwork"
+        class="invite-image"
+      />
+      <div class="invite-name-block">
+        <h1 id="customMessage"></h1>
+      </div>
+    </div>
+
+    <div class="invite-wrapper">
+        <section class="what-when-where-section">
+            <div class="detail-block">
+              <h3 class="detail-title">What</h3>
+              <p class="detail-text">Come see an intamite screening of our private vowes, 
+                followed by a planted-based multi course dinner and an unforgettable night of live music and celebration. 
+              </p>
+            </div>
+          </section>
+
+      <div class="detail-divider"></div>
+
+      <section class="where-when-section">
+        <div class="detail-block">
+          <h3 class="detail-title">Where</h3>
+          <p class="detail-text">Realm Denver, 3851 Steele St Suite 1398, Denver, CO 80205</p>
+        </div>
+      </section>
+
+      <div class="detail-divider"></div>
+
+      <section class="when-where-section">
+        <div class="detail-block">
+          <h3 class="detail-title">When</h3>
+          <p class="detail-text">Saturday, November 14th, 2026</p>
+        </div>
+      </section>
+      <div class="detail-divider"></div>
+
+
+
+    <div class="rsvp-section">
+      <form id="rsvpForm" class="rsvp-form">
+        <p class="rsvp-guest-line">
+          RSVP for <span id="guestDisplayName"></span>  <span id="plusOne"></span>
+        </p>
+        <div class="radio-group">
+          <label class="radio-option accept">
+            <input type="radio" name="attendance" value="accept" required>
+            Joyfully Accepts
+          </label>        
+            <label class="radio-option decline">
+              <input type="radio" name="attendance" value="decline" required >
+              Regretfully Declines
+            </label>
+          </div>
+      </form>
+      <p id="rsvpMessage" class="rsvp-message"></p>
+    </div>
+  </div>
 </section>
