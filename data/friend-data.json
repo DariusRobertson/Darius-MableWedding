@@ -36,8 +36,19 @@
             "plus-1": true,
             "rsvpStatus": "pending",
             "code": "Akitta",
-            "customMessage": "Mom + KJ + Alexis",
-            "guestName": "KJ And Alexis"
+            "customMessage": "Mom + KJ",
+            "guestName": "KJ"
+
+        },
+
+                {
+            "firstName": "Alexis",
+            "lastName": "Robertson",
+            "plus-1": false,
+            "rsvpStatus": "pending",
+            "code": "Alexis",
+            "customMessage": "Sis, hope you're ready to party",
+            "guestName": ""
 
         },
 
