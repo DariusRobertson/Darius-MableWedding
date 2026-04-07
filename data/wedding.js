@@ -35,8 +35,6 @@ async function loadInvite(){
         const guests = await loadGuest();
         const guest = guests.invitees.find(g => g.code.toLowerCase() === guestCode.toLocaleLowerCase());
 
-        console.log("customMessage element:", customMessage);
-        console.log("matched guest:", guest);
 
         if(!guest){
             localStorage.removeItem(STORAGE_KEY);
