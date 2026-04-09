@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Ms+Madi&display=swap" rel="stylesheet">
 
 </head>
 <script src="../data/wedding.js" defer></script>
@@ -37,6 +38,7 @@
         <h1 id="customMessage"></h1>
       </div>
     </div>
+    <div class="invite-wrapper">
         <section class="what-when-where-section">
             <div class="detail-block">
               <h3 class="detail-title">What</h3>
@@ -61,29 +63,97 @@
         <div class="detail-block">
           <h3 class="detail-title">When</h3>
           <p class="detail-text">Saturday, November 14th, 2026</p>
+          <p class="detail-text">5:30 PM - 10:30 PM</p>
         </div>
       </section>
       <div class="detail-divider"></div>
 
 
+      <section class="rsvp-section">
+        <div class="rsvp-card">
+              <h2 class="rsvp-heading"> RSVP</h2>
+              <p class="rsvp-subtext">
+                Please RSVP by <br>
+                July 1st, 2026
+              </p>
 
-    <div class="rsvp-section">
-      <form id="rsvpForm" class="rsvp-form">
-        <p class="rsvp-guest-line">
-          RSVP for <span id="guestDisplayName"></span>  <span id="plusOne"></span>
-        </p>
-        <div class="radio-group">
-          <label class="radio-option accept">
-            <input type="radio" name="attendance" value="accept" required>
-            Joyfully Accepts
-          </label>        
-            <label class="radio-option decline">
-              <input type="radio" name="attendance" value="decline" required >
-              Regretfully Declines
-            </label>
-          </div>
-      </form>
-      <p id="rsvpMessage" class="rsvp-message"></p>
+                <div class="rsvp-line-block">
+                  <label for="guestDisplayName" class="rsvp-script-label">For</label>
+                  <p class="rsvp-line-text"><span id="guestDisplayName"></span>  <span id="plusOne"></span></p>
+                </div>
+
+                <div class="rsvp-choice-group">
+                  <label class="rsvp-choice">
+                    <input type="radio" name="attendance" value="accept" id="accept" required>
+                    <span>Accepts with pleasure</span>
+                  </label>
+
+                  <label class="rsvp-choice">
+                    <input type="radio" name="attendance" value="decline"  id="decline" required>
+                    <span>Declines with regret</span>
+                  </label>
+                </div> 
+          
+          <section class="rsvp-form-section" id="rsvpForm">
+            <div class="number-of-guests hidden" id="numberOfGuest">
+                <label for="guestCount" class="rsvp-script-label">Number of guests attending</label>
+                <input type="number" id="guestCount" name="guestCount" min="1" max="2" class="rsvp-line-input" required>
+            </div>
+
+            <p class="rsvp-note">
+              Please Select your main course option 
+            </p>
+                
+            <div class="meal-section" id="mealSection">
+                <h4 class="meal-heading"><span id="guestMealName"></span>'s main course</h4>
+                <div class="rsvp-choice-group">
+                  <label class="rsvp-choice-meal">
+                    <input type="radio" name="mainCourseGuest1" value="SweetPotato" required>
+                    <span>Sweet Potato & Mushroom Stuffed Cabage, Apple Puree, Crispy Brussels, Red Wine</span>
+                  </label>
+
+                  <label class="rsvp-choice-meal">
+                    <input type="radio" name="mainCourseGuest1" value="Lentil" required>
+                    <span>Beluga Lentil Stuffed Honey Nut Squash, Roasted Carrot, Celeraic Root Puree, Pecan Gremolata</span>
+                  </label>
+                </div>    
+              </div>  
+
+              <div id="plusOneMealWrap" class="meal-section hidden">
+                <h4 class="meal-heading"><span id="plusOneMealName"></span>'s main course</h4>
+                <div class="rsvp-choice-group">
+                  <label class="rsvp-choice-meal">
+                    <input type="radio" name="mainCourseGuest2" value="SweetPotato" required>
+                    <span>Sweet Potato & Mushroom Stuffed Cabage, Apple Puree, Crispy Brussels, Red Wine</span>
+                  </label>
+
+                  <label class="rsvp-choice-meal">
+                    <input type="radio" name="mainCourseGuest2" value="Lentil" required>
+                    <span>Beluga Lentil Stuffed Honey Nut Squash, Roasted Carrot, Celeraic Root Puree, Pecan Gremolata</span>
+                  </label>
+                </div> 
+              </div>
+
+
+            <p class="rsvp-note ">
+              Please add any dietary restrictions or allergies. Keep in mind this 
+              will be a 100% vegan menu. Including drinks 
+            </p>
+              <textarea 
+              id="dietaryNotes"
+              name="dietaryNotes"
+              rows="3"
+              class="rsvp-textarea"
+              placeholder=""
+              ></textarea>
+          </section>
+
+            <button type="submit" form="rsvpForm" class="rsvp-submit" id="rsvpFormButton">Send RSVP</button>
+            <p class="rsvp-message" id="rsvpMessage"></p>
+
+
+
+        </div>
+      </section>
     </div>
-
 </section>

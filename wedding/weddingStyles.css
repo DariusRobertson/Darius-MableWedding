@@ -123,11 +123,6 @@
     align-items: center;
 
 }
-.rsvp-section {
-  background: #f6f0e6;
-  color: #2e1712;
-  padding: 80px 20px;
-}
 
 .ivite-image {
     max-width: 100%;
@@ -146,7 +141,7 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    background-color: #111;
+  
 }
 
 .what-when-where-section-1 {
@@ -157,7 +152,7 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    background-color: rgb(83, 81, 81)
+    
 }
 
 .detail-block {
@@ -167,7 +162,8 @@
 .detail-title {
   font-family: "Ms Madi", cursive;
   font-size: 2rem;
-  color: white;
+  font-style: bold;
+  color: #efc1a6;
   margin: 0;
 }
 
@@ -175,7 +171,7 @@
   margin-top: 6px;
   font-size: 1.75rem;
   font-family: "Ms Madi", cursive;
-  color: white;
+  color: black;
   letter-spacing: 0.5px;
 }
 
@@ -192,6 +188,19 @@
   opacity: 0.5;
 }
 
+.meal-heading{
+  display: inline-block;
+  margin-bottom: 8px;
+  font-family: "Ms Madi", cursive;
+  font-size: 2rem;
+  color: #7d675e;
+}
+
+.rsvp-section {
+  width: 100%;
+  margin-top: 28px; 
+}
+
 .rsvp-card {
   width: min(700px, 92%);
   margin: 0 auto;
@@ -201,27 +210,152 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-.rsvp-title {
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.rsvp-guest-line {
-  text-align: center;
-  margin-bottom: 24px;
-  font-size: 1rem;
-  color: #6b5b53;
-  letter-spacing: 1px;
+.rsvp-heading {
+  margin: 0 0 18px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.3rem, 4vw, 4rem);
+  font-weight: 500;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  font-size:1rem;
 }
 
-.rsvp-form {
+.rsvp-subtext {
+  margin: 0 0 34px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+  color: rgba(45, 42, 38, 0.72);
+}
+
+.rsvp-line-block {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 28px;
+  text-align: left;
+}
+
+.number-of-guests {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 28px;
+  text-align: left;
+}
+
+.rsvp-script-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-family: "Ms Madi", cursive;
+  font-size: 2rem;
+  color: #7d675e;
+}
+
+.rsvp-line-text,
+.rsvp-line-input,
+.rsvp-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.18);
+  border-radius: 0;
+  padding: 8px 2px 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.35rem;
+  color: #2d2a26;
+  box-shadow: none;
+}
+
+.rsvp-line-input:focus,
+.rsvp-textarea:focus {
+  outline: none;
+  border-bottom-color: #b98f77;
+}
+
+.rsvp-textarea {
+  resize: vertical;
+  min-height: 70px;
+  line-height: 1.5;
+}
+
+.rsvp-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0,0,0,0.10);
+  margin: 18px 0 30px;
+}
+
+.rsvp-choice-group {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-top: 150px;
+  align-items: flex-start;
+  gap: 18px;
+  width: fit-content;
+  margin: 0 auto 34px;
 }
+
+.rsvp-choice {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  color: #3a342f;
+}
+
+
+.rsvp-choice-meal {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: "Ms Madi", cursive;
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  color: #3a342f;
+}
+
+.rsvp-choice input[type="radio"] {
+  width: 19px;
+  height: 19px;
+  accent-color: #b98f77;
+}
+
+.rsvp-note {
+  margin: 18px 0 16px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  color: rgba(45, 42, 38, 0.72);
+}
+
+.rsvp-submit {
+  margin-top: 12px;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.16);
+  color: #2d2a26;
+  padding: 12px 22px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.rsvp-submit:hover {
+  background: rgba(0,0,0,0.03);
+}
+
+.rsvp-message {
+  margin-top: 18px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  color: #7d675e;
+}
+
+.hidden {
+  display: none;
+}
+
 
 
 .radio-group {
@@ -367,6 +501,37 @@
     font-size: clamp(1rem, 5vw, 2rem);
     line-height: 0.95;
     letter-spacing: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .rsvp-card {
+    padding: 34px 22px 30px;
+  }
+
+  .rsvp-heading {
+    font-size: clamp(2rem, 9vw, 3rem);
+    letter-spacing: 0.14em;
+  }
+
+  .rsvp-subtext,
+  .rsvp-note {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .rsvp-choice {
+    font-size: 1.15rem;
+  }
+
+  .rsvp-script-label {
+    font-size: 1.6rem;
+  }
+
+  .rsvp-line-text,
+  .rsvp-line-input,
+  .rsvp-textarea {
+    font-size: 1.15rem;
   }
 }
 
