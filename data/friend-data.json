@@ -6,7 +6,8 @@
             "plus-1": true,
             "rsvpStatus": "pending",
             "code": "David",
-            "customMessage": "David & Brittney, you are invited!"
+            "customMessage": "David, no steak for you!",
+            "guestName": "Brittney"
         },
 
         {
@@ -41,13 +42,24 @@
 
         },
 
-                {
+        {
             "firstName": "Alexis",
             "lastName": "Robertson",
             "plus-1": false,
             "rsvpStatus": "pending",
             "code": "Alexis",
             "customMessage": "Sis, hope you're ready to party",
+            "guestName": ""
+
+        },
+
+        {
+            "firstName": "Diana",
+            "lastName": "Sigsbee",
+            "plus-1": false,
+            "rsvpStatus": "pending",
+            "code": "Diana",
+            "customMessage": "Diana Sigsbee, you are invited!",
             "guestName": ""
 
         },
@@ -70,6 +82,24 @@
             "code": "Sam",
             "customMessage": "Sam and Wolf, you are invited!"
 
+        },
+
+        {
+            "firstName": "Dominique",
+            "lastName": "Keiyern",
+            "plus-1": true,
+            "rsvpStatus": "pending",
+            "code": "dominique",
+            "customMessage": "Auntie + Hodie, you are invited!"
+        },
+
+        {
+            "firstName": "Claire",
+            "lastName": "Jarrel",
+            "plus-1": false,
+            "rsvpStatus": "pending",
+            "code": "Claire",
+            "customMessage": "Claire Bear! You are invited!"
         }
 
     ]

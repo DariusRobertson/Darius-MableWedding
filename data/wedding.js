@@ -4,8 +4,30 @@ const guestDisplayName = document.getElementById("guestDisplayName");
 const plusOne = document.getElementById("plusOne");
 const guestCount = document.getElementById("guestCount");
 const customMessage = document.getElementById("customMessage");
+const plusOneMealWrap = document.getElementById("plusOneMealWrap");
+const plusOneMealName = document.getElementById("plusOneMealName");
+const guestMealName = document.getElementById("guestMealName");
+const numberOfGuestWrap = document.getElementById("numberOfGuest");
+const rsvpForm = document.getElementById("rsvpForm");
+const declinedInvite = document.getElementById("decline").addEventListener("click", updatedAttendance);
+const acceptedInvite = document.getElementById("accept").addEventListener("click", updatedAttendance);
+
+
+const rsvpFormButton = document.getElementById("rsvpFormButton");
+
+let guest = null; 
+
+if (rsvpFormButton) {
+    rsvpFormButton.addEventListener("click", async function (e) {
+        e.preventDefault();
+        const guest = await loadInvite();
+        sendRSVP(guest);
+    });
+}
+
 
 const STORAGE_KEY = "savedWeddingGuestCode"; 
+const google_sheet_script_url = "https://script.google.com/macros/s/AKfycbz6MrQ473JGAp8umbV9FLF3EiGmhi-p7er3MWLm4RGJsnM3pBDPjFd31_eesL2KH7EY/exec";
 
 
 async function loadGuest(){
@@ -17,6 +39,98 @@ async function loadGuest(){
 
     return await response.json();
 }
+
+function updatedAttendance(){
+    if(document.getElementById("decline").checked){
+
+        rsvpForm.classList.add("hidden");
+        document.getElementsByName("mainCourseGuest2")[0].required = false;    
+        document.getElementsByName("mainCourseGuest2")[1].required = false;
+        document.getElementsByName("mainCourseGuest1")[0].required = false;    
+        document.getElementsByName("mainCourseGuest1")[1].required = false;
+    }
+
+    if(document.getElementById("accept").checked){
+        rsvpForm.classList.remove("hidden");
+        
+        document.getElementsByName("mainCourseGuest2")[0].required = true;    
+        document.getElementsByName("mainCourseGuest2")[1].required = true;
+        document.getElementsByName("mainCourseGuest1")[0].required = true;    
+        document.getElementsByName("mainCourseGuest1")[1].required = true;
+        
+    }
+ }
+
+function sendRSVP(guest) {
+  try {
+    const attendance = document.querySelector('input[name="attendance"]:checked')?.value || "";
+    const guestMeal1 = document.querySelector('input[name="mainCourseGuest1"]:checked')?.value || "";
+    const guestMeal2 = document.querySelector('input[name="mainCourseGuest2"]:checked')?.value || "";
+
+    const guestCountInput = document.getElementById("guestCount");
+    const dietaryNotes = document.getElementById("dietaryNotes");
+    
+
+    const plusOneName = guest["plus-1"] ? guest.guestName : "None";
+
+    let guestCount; 
+    if (attendance === "decline") {
+      guestCount = 0; 
+    }else{
+      guestCount = guestCountInput && guestCountInput.value ? Number(guestCountInput.value) : 1;
+    }
+
+    const payload = {
+      guestCode: guest.code || "",
+      guestName: `${guest.firstName || ""} ${guest.lastName || ""}`.trim(),
+      attendance: attendance,
+      guestCount: guestCount,
+      plusOneName: plusOneName,
+      guestMeal1: guestMeal1,
+      guestMeal2: guestMeal2,
+      dietaryNotes: dietaryNotes ? dietaryNotes.value.trim() : "None"
+    };
+
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = google_sheet_script_url;
+    form.target = "hidden_iframe";
+    form.style.display = "none";
+
+    Object.entries(payload).forEach(([key, value]) => {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = key;
+      input.value = value;
+      form.appendChild(input);
+    });
+
+    let iframe = document.getElementById("hidden_iframe");
+    if (!iframe) {
+      iframe = document.createElement("iframe");
+      iframe.name = "hidden_iframe";
+      iframe.id = "hidden_iframe";
+      iframe.style.display = "none";
+      document.body.appendChild(iframe);
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+
+    if (rsvpMessage) {
+      rsvpMessage.textContent = "Your RSVP has been submitted!";
+    }
+
+    form.remove();
+  } catch (error) {
+    console.error(error);
+    if (rsvpMessage) {
+      rsvpMessage.textContent = "There was a problem submitting your RSVP.";
+    }
+  }
+}
+
+
 
 async function loadInvite(){
     const params = new URLSearchParams(window.location.search);
@@ -34,7 +148,8 @@ async function loadInvite(){
     try{
         const guests = await loadGuest();
         const guest = guests.invitees.find(g => g.code.toLowerCase() === guestCode.toLocaleLowerCase());
-
+        plusOneMealName.textContent = guest.guestName;
+        guestMealName.textContent = guest.firstName;
 
         if(!guest){
             localStorage.removeItem(STORAGE_KEY);
@@ -44,10 +159,25 @@ async function loadInvite(){
 
         localStorage.setItem(STORAGE_KEY, guest.code);
 
-        guestDisplayName.textContent = guest.firstName; 
-        plusOne.textContent = guest["plus-1"] ? " & " + guest.guestName : "";
+       guestDisplayName.textContent = guest.firstName; 
+       plusOne.textContent = guest["plus-1"] ? " & " + guest.guestName : "";
         customMessage.textContent = 
             guest.customMessage || "We are so excited for you to join us for our wedding!";
+
+
+    if (guest["plus-1"]){
+        plusOneMealWrap.classList.remove("hidden");
+        numberOfGuestWrap.classList.remove("hidden");
+    }else{
+        plusOneMealWrap.classList.add("hidden");
+        numberOfGuestWrap.classList.add("hidden");
+        document.getElementsByName("mainCourseGuest2")[0].required = false;    
+        document.getElementsByName("mainCourseGuest2")[1].required = false;    
+        document.getElementById("guestCount").required = false;
+     
+    }
+
+    return guest; 
 
     }catch(error){
         console.error(error);
@@ -55,4 +185,7 @@ async function loadInvite(){
     }
 }
 
+
 loadInvite();
+loadGuest();
+updatedAttendance

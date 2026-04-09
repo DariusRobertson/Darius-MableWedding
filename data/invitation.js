@@ -56,3 +56,7 @@ lookupForm.addEventListener("submit", async function (e) {
     }
 
     });
+
+redirectIfRemembered();
+loadGuest();
+
