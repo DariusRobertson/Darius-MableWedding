@@ -663,6 +663,149 @@
   }
 }
 
+@media (max-width: 1100px) {
+  .dress-code-container {
+    width: min(1000px, 94%);
+    padding-top: 100px;
+  }
+
+  .dress-code-inner {
+    grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .dress-code-title {
+    font-size: clamp(36px, 4.5vw, 64px);
+    max-width: 7ch;
+  }
+
+  .dress-code-text-wrap {
+    padding: 60px 7%;
+  }
+
+  .dress-code-text {
+    font-size: clamp(1.35rem, 2vw, 1.9rem);
+  }
+}
+
+@media (max-width: 850px) {
+  .dress-code-container {
+    width: min(760px, 95%);
+    padding-top: 90px;
+    padding-bottom: 28px;
+  }
+
+  .dress-code-inner {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .dress-code-title-wrap {
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .dress-code-title {
+    margin: 0 auto;
+    max-width: none;
+    text-align: center;
+    font-size: clamp(34px, 8vw, 56px);
+    line-height: 0.95;
+  }
+
+  .dress-code-image-wrap {
+    width: 100%;
+  }
+
+  .dress-code-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .dress-code-text-wrap {
+    padding: 48px 7%;
+  }
+
+  .dress-code-text {
+    font-size: clamp(1.15rem, 3.2vw, 1.6rem);
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar-wedding {
+    padding: 12px 14px;
+  }
+
+  .nav-links-wedding {
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links-wedding a {
+    font-size: 0.95rem;
+  }
+
+  .dress-code-container {
+    width: 100%;
+    padding: 86px 12px 20px;
+  }
+
+  .dress-code-inner {
+    gap: 14px;
+  }
+
+  .dress-code-title {
+    font-size: clamp(30px, 10vw, 46px);
+    line-height: 0.95;
+  }
+
+  .dress-code-text-wrap {
+    padding: 34px 18px;
+  }
+
+  .dress-code-text {
+    font-size: clamp(1rem, 4.8vw, 1.25rem);
+    line-height: 1.6;
+  }
+
+  .dress-code-text p,
+  .dress-code-text h1,
+  .dress-code-text h2,
+  .dress-code-text h3 {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav-links-wedding {
+    gap: 12px;
+  }
+
+  .nav-links-wedding a {
+    font-size: 0.88rem;
+  }
+
+  .dress-code-container {
+    padding-top: 78px;
+  }
+
+  .dress-code-title {
+    font-size: clamp(26px, 11vw, 40px);
+  }
+
+  .dress-code-text-wrap {
+    padding: 28px 14px;
+  }
+
+  .dress-code-text {
+    font-size: 0.98rem;
+  }
+}
+
 
 
 
