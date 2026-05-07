@@ -6,6 +6,52 @@
     box-sizing: border-box;
 }
 
+.registry-header {
+  text-align: center;
+  padding: 60px 20px 20px; 
+}
+
+.registry-layout {
+  min-height: calc(100vh - 80px);
+  padding: 70px 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registry-header {
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.serv__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;   /* this makes cards wrap only when needed */
+  gap: 2rem;
+}
+
+.serv__card {
+  width: 260px;
+  flex: 0 0 260px;   /* keeps cards from shrinking tiny */
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  border: 1px solid #eee;
+  overflow: hidden;
+  background: lightgray;
+}
+
+.serv__img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
 .invite-hero {
   background: #f4f1ed;
   padding-top: 70px;
