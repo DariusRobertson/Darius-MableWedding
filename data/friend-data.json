@@ -14,17 +14,15 @@
             "firstName": "Brittney",
             "lastName": "Gomez",
             "plus-1": true,
-            "rsvpStatus": "pending",
             "code": "Brittney",
             "customMessage": "David & Brittney, you are invited!",
-            "guestName": "David"
+            "guestName": "David" 
         },
 
         {
             "firstName": "Bryce",
             "lastName": "Mayer",
             "plus-1": true,
-            "rsvpStatus": "pending",
             "code": "Bryce",
             "customMessage": "Bryce & Rosalia, you are invited!",
             "guestName": "Rosalia"
@@ -35,7 +33,6 @@
             "firstName": "Akitta",
             "lastName": "Robertson",
             "plus-1": true,
-            "rsvpStatus": "pending",
             "code": "Akitta",
             "customMessage": "Mom + KJ",
             "guestName": "KJ"
@@ -46,7 +43,6 @@
             "firstName": "Alexis",
             "lastName": "Robertson",
             "plus-1": false,
-            "rsvpStatus": "pending",
             "code": "Alexis",
             "customMessage": "Sis, hope you're ready to party",
             "guestName": ""
@@ -57,7 +53,6 @@
             "firstName": "Diana",
             "lastName": "Sigsbee",
             "plus-1": false,
-            "rsvpStatus": "pending",
             "code": "Diana",
             "customMessage": "Momma Sigsbee, we love you!",
             "guestName": ""
@@ -68,7 +63,6 @@
             "firstName": "Wolfgang",
             "lastName": "Weber",
             "plus-1": true,
-            "rsvpStatus": "pending",
             "code": "Woflgang",
             "customMessage": "Wolf & Sam, you are invited!"
 
@@ -78,7 +72,6 @@
             "firstName": "Sam",
             "lastName": "Weber",
             "plus-1": true,
-            "rsvpStatus": "pending",
             "code": "Sam",
             "customMessage": "Sam and Wolf, you are invited!"
 
@@ -88,7 +81,6 @@
             "firstName": "Dominique",
             "lastName": "Mitchell",
             "plus-1": true,
-            "rsvpStatus": "pending",
             "code": "dominique",
             "customMessage": "Auntie + Hodiah, you are invited!"
         },
@@ -97,7 +89,6 @@
             "firstName": "Claire",
             "lastName": "Jarrel",
             "plus-1": false,
-            "rsvpStatus": "pending",
             "code": "Claire",
             "customMessage": "Claire Bear! You are invited!"
         }

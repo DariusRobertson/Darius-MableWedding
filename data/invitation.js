@@ -57,6 +57,6 @@ lookupForm.addEventListener("submit", async function (e) {
 
     });
 
-redirectIfRemembered();
+//redirectIfRemembered();
 loadGuest();
 
