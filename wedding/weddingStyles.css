@@ -6,6 +6,29 @@
     box-sizing: border-box;
 }
 
+.tracker {
+  width: 100%;
+  height: 12px;
+  background: #e5e5e5;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 18px;
+}
+
+.tracker-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7ec8c9, #4da6a8);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+  min-width: 0;
+}
+
+.tracker-text {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #666;
+}
+
 
 .registry-header {
   width: 100%;
