@@ -11,6 +11,7 @@ const numberOfGuestWrap = document.getElementById("numberOfGuest");
 const rsvpForm = document.getElementById("rsvpForm");
 const declinedInvite = document.getElementById("decline").addEventListener("click", updatedAttendance);
 const acceptedInvite = document.getElementById("accept").addEventListener("click", updatedAttendance);
+const numberOfGuest = document.getElementById("guestCount").addEventListener("input", updatedAttendance);
 
 
 const rsvpFormButton = document.getElementById("rsvpFormButton");
@@ -28,6 +29,7 @@ if (rsvpFormButton) {
 
 const STORAGE_KEY = "savedWeddingGuestCode"; 
 const google_sheet_script_url = "https://script.google.com/macros/s/AKfycbz6MrQ473JGAp8umbV9FLF3EiGmhi-p7er3MWLm4RGJsnM3pBDPjFd31_eesL2KH7EY/exec";
+const google_search_name_url = "https://script.google.com/macros/s/AKfycbz4Qbb9WrBhFK-BFC5IcEFlQOQ7KG4zLnow7HB8SCv-KmlmHojHdf6Pkg8s4amGsrqY/exec";
 
 
 async function loadGuest(){
@@ -40,6 +42,12 @@ async function loadGuest(){
     return await response.json();
 }
 
+async function searchGuestByName(name){
+    const response = await fetch(google_search_name_url + "?name=" + encodeURIComponent(name));
+    return await response.json();
+
+}
+
 function updatedAttendance(){
     if(document.getElementById("decline").checked){
 
@@ -48,6 +56,7 @@ function updatedAttendance(){
         document.getElementsByName("mainCourseGuest2")[1].required = false;
         document.getElementsByName("mainCourseGuest1")[0].required = false;    
         document.getElementsByName("mainCourseGuest1")[1].required = false;
+        return false; 
     }
 
     if(document.getElementById("accept").checked){
@@ -57,75 +66,139 @@ function updatedAttendance(){
         document.getElementsByName("mainCourseGuest2")[1].required = true;
         document.getElementsByName("mainCourseGuest1")[0].required = true;    
         document.getElementsByName("mainCourseGuest1")[1].required = true;
+        checkGuestCount();
+
+        return true; 
         
     }
+
+    checkGuestCount();  
+
  }
 
-function sendRSVP(guest) {
-  try {
-    const attendance = document.querySelector('input[name="attendance"]:checked')?.value || "";
-    const guestMeal1 = document.querySelector('input[name="mainCourseGuest1"]:checked')?.value || "";
-    const guestMeal2 = document.querySelector('input[name="mainCourseGuest2"]:checked')?.value || "";
+ function checkGuestCount(){
 
-    const guestCountInput = document.getElementById("guestCount");
-    const dietaryNotes = document.getElementById("dietaryNotes");
-    
+    const numberOfGuest = parseInt(document.getElementById("guestCount").value);
+    console.log(numberOfGuest);
 
-    const plusOneName = guest["plus-1"] ? guest.guestName : "None";
-
-    let guestCount; 
-    if (attendance === "decline") {
-      guestCount = 0; 
+    if(numberOfGuest === 1){
+        document.getElementsByName("mainCourseGuest2")[0].required = false;    
+        document.getElementsByName("mainCourseGuest2")[1].required = false;
+        plusOneMealWrap.classList.add("hidden");
     }else{
-      guestCount = guestCountInput && guestCountInput.value ? Number(guestCountInput.value) : 1;
+        document.getElementsByName("mainCourseGuest2")[0].required = true;    
+        document.getElementsByName("mainCourseGuest2")[1].required = true;
+        plusOneMealWrap.classList.remove("hidden");
     }
 
-    const payload = {
-      guestCode: guest.code || "",
-      guestName: `${guest.firstName || ""} ${guest.lastName || ""}`.trim(),
-      attendance: attendance,
-      guestCount: guestCount,
-      plusOneName: plusOneName,
-      guestMeal1: guestMeal1,
-      guestMeal2: guestMeal2,
-      dietaryNotes: dietaryNotes ? dietaryNotes.value.trim() : "None"
-    };
+ }
 
-    const form = document.createElement("form");
-    form.method = "POST";
-    form.action = google_sheet_script_url;
-    form.target = "hidden_iframe";
-    form.style.display = "none";
+ function checkRequiredIsFilled(guest){
+  const guestCount = document.getElementById("guestCount").value;
+  const guestMeal1 = document.querySelector('input[name="mainCourseGuest1"]:checked')?.value || "";
+  const guestMeal2 = document.querySelector('input[name="mainCourseGuest2"]:checked')?.value || ""; 
 
-    Object.entries(payload).forEach(([key, value]) => {
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = key;
-      input.value = value;
-      form.appendChild(input);
-    });
+  const needsGuest2Meal = guest["plus-1"] && Number(guestCount) === 2;
+  const guestDeclined = document.getElementById("decline").checked;
 
-    let iframe = document.getElementById("hidden_iframe");
-    if (!iframe) {
-      iframe = document.createElement("iframe");
-      iframe.name = "hidden_iframe";
-      iframe.id = "hidden_iframe";
-      iframe.style.display = "none";
-      document.body.appendChild(iframe);
-    }
+  if(guestDeclined){
+    return true; 
+  }
 
-    document.body.appendChild(form);
-    form.submit();
+  console.log("guestMeal2: ", needsGuest2Meal);
 
-    if (rsvpMessage) {
-      rsvpMessage.textContent = "Your RSVP has been submitted!";
-    }
+  const requiredFields = [
+    guestCount !== "",
+    guestMeal1 !== "",
+    !needsGuest2Meal || guestMeal2 !== "",
+  ]; 
 
-    form.remove();
-  } catch (error) {
-    console.error(error);
-    if (rsvpMessage) {
-      rsvpMessage.textContent = "There was a problem submitting your RSVP.";
+  console.log(requiredFields);
+  return requiredFields.every(Boolean);
+ 
+ }
+
+
+ async function checkIfAlreadyRSVP(guest){
+  const guestSearch = await searchGuestByName(guest);
+  if(guestSearch.found){
+    console.log(guestSearch); 
+    return false; 
+  }
+    return true; 
+ }
+
+async function sendRSVP(guest) {
+  if(!(await checkIfAlreadyRSVP(guest))){
+    rsvpMessage.textContent = "You have already RSVP'd.";
+  }else if(!checkRequiredIsFilled(guest)){
+    rsvpMessage.textContent = "Please fill out all required fields.";
+  }else{
+    try {
+      const attendance = document.querySelector('input[name="attendance"]:checked')?.value || "";
+      const guestMeal1 = document.querySelector('input[name="mainCourseGuest1"]:checked')?.value || "";
+      const guestMeal2 = document.querySelector('input[name="mainCourseGuest2"]:checked')?.value || "";
+      const guestAttending = document.querySelector('input[name="guestCount"]:checked')?.value || "";
+
+      const guestCountInput = document.getElementById("guestCount");
+      const dietaryNotes = document.getElementById("dietaryNotes");
+      
+      const plusOneName = guest["plus-1"] ? guest.guestName : "None";
+
+      let guestCount; 
+      if (attendance === "decline") {
+        guestCount = 0; 
+      }else{
+        guestCount = guestCountInput && guestCountInput.value ? Number(guestCountInput.value) : 1;
+      }
+
+      const payload = {
+        guestCode: guest.code || "",
+        guestName: `${guest.firstName || ""} ${guest.lastName || ""}`.trim(),
+        attendance: attendance,
+        guestCount: guestCount,
+        plusOneName: plusOneName,
+        guestMeal1: guestMeal1,
+        guestMeal2: guestMeal2,
+        dietaryNotes: dietaryNotes ? dietaryNotes.value.trim() : "None"
+      };
+
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = google_sheet_script_url;
+      form.target = "hidden_iframe";
+      form.style.display = "none";
+
+      Object.entries(payload).forEach(([key, value]) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = value;
+        form.appendChild(input);
+      });
+
+      let iframe = document.getElementById("hidden_iframe");
+      if (!iframe) {
+        iframe = document.createElement("iframe");
+        iframe.name = "hidden_iframe";
+        iframe.id = "hidden_iframe";
+        iframe.style.display = "none";
+        document.body.appendChild(iframe);
+      }
+
+      document.body.appendChild(form);
+      form.submit();
+
+      if (rsvpMessage) {
+        rsvpMessage.textContent = "Your RSVP has been submitted!";
+      }
+
+      form.remove();
+    } catch (error) {
+      console.error(error);
+      if (rsvpMessage) {
+        rsvpMessage.textContent = "There was a problem submitting your RSVP.";
+      }
     }
   }
 }
@@ -188,4 +261,4 @@ async function loadInvite(){
 
 loadInvite();
 loadGuest();
-updatedAttendance
+updatedAttendance();
