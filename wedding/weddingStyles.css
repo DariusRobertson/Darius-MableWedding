@@ -6,9 +6,25 @@
     box-sizing: border-box;
 }
 
+
 .registry-header {
+  width: 100%;
+  max-width: 1100px;
   text-align: center;
-  padding: 60px 20px 20px; 
+  padding: 60px 20px 20px;
+  margin: 0 auto 3rem;
+}
+
+.registry-header h1{
+  margin: 0 auto;
+  font-family: 'Ms Madi', cursive;
+  
+}
+
+.registry-header p{
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: 'Lora', serif;
 }
 
 .registry-layout {
@@ -17,12 +33,44 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background:
+    linear-gradient(rgba(248,245,241,0.92), rgba(248,245,241,0.92));
+
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-.registry-header {
-  max-width: 600px;
+.serv__card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.serv__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+}
+
+.serv__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.serv__content{
+  padding-top: 12px; 
   text-align: center;
-  margin-bottom: 3rem;
+}
+
+.serv__content h3{
+  font-family: 'MS Madi', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 6px; 
+}
+
+.serv__content p{
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  color: #666; 
+  line-height: 1.5;
 }
 
 .serv__container {
@@ -30,13 +78,13 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  flex-wrap: wrap;   /* this makes cards wrap only when needed */
+  flex-wrap: wrap;   
   gap: 2rem;
 }
 
 .serv__card {
   width: 260px;
-  flex: 0 0 260px;   /* keeps cards from shrinking tiny */
+  flex: 0 0 260px;  
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
@@ -74,6 +122,7 @@
 
 .dress-code-page .navbar-wedding {
   top: 0px; 
+  
 }
 
 .dress-code-title{
@@ -91,20 +140,28 @@
 .dress-code-container {
   width: min(1200px, 92%);
   margin: 0 auto;
+  padding: 80px 8%;
   padding-top: 110px;
   padding-bottom: 40px;
 }
 
+
 .dress-code-inner {
   display: grid;
-  grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
-  gap: 28px;
+  grid-template-columns: 140px 560px;
+  gap: 10px;
   align-items: start;
+
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .dress-code-title-wrap {
-  align-self: start;
-  padding-top: 20px;
+  width: 360px;
+  justify-self: end;
+  position: relative;
+  left: 40px;
+  z-index: 2;
 }
 
 .dress-code-image-wrap {
@@ -125,9 +182,10 @@
 }
 
 .dress-code-text{
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Lora", serif;
   text-align: center;
-  font-size: clamp(2rem, 2vw, 1.6rem);
+  font-size: 1.25rem;
+  line-height: 1.5;
 }
 
 .invite-page {
@@ -717,12 +775,18 @@
 
   .dress-code-inner {
     grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
-    gap: 20px;
+    gap: 24px;
+    left: 0;
+  }
+
+  .dress-code-title-wrap {
+    left: 0;
+    padding: 0;
   }
 
   .dress-code-title {
-    font-size: clamp(36px, 4.5vw, 64px);
-    max-width: 7ch;
+    font-size: clamp(36px, 5vw, 64px);
+    max-width: 8ch;
   }
 
   .dress-code-text-wrap {
@@ -730,42 +794,51 @@
   }
 
   .dress-code-text {
-    font-size: clamp(1.35rem, 2vw, 1.9rem);
+    font-size: clamp(1.25rem, 2vw, 1.8rem);
   }
 }
 
+/* Mobile / small tablet */
 @media (max-width: 850px) {
   .dress-code-container {
-    width: min(760px, 95%);
-    padding-top: 90px;
-    padding-bottom: 28px;
+    width: 100%;
+    padding: 95px 20px 32px;
   }
 
   .dress-code-inner {
-    grid-template-columns: 1fr;
-    gap: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
   }
 
   .dress-code-title-wrap {
-    padding-top: 0;
+    width: 100%;
     text-align: center;
+    padding: 0;
+    left: 0;
   }
 
   .dress-code-title {
     margin: 0 auto;
     max-width: none;
     text-align: center;
-    font-size: clamp(34px, 8vw, 56px);
+    font-size: clamp(38px, 10vw, 64px);
     line-height: 0.95;
   }
 
   .dress-code-image-wrap {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .dress-code-image {
     width: 100%;
-    max-width: 100%;
+    max-width: 560px;
     height: auto;
   }
 
@@ -774,11 +847,19 @@
   }
 
   .dress-code-text {
-    font-size: clamp(1.15rem, 3.2vw, 1.6rem);
-    line-height: 1.5;
+    font-size: clamp(1.05rem, 3vw, 1.45rem);
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .dress-code-text h1,
+  .dress-code-text h2,
+  .dress-code-text h3 {
+    text-align: center;
   }
 }
 
+/* Phone */
 @media (max-width: 600px) {
   .navbar-wedding {
     padding: 12px 14px;
@@ -795,17 +876,19 @@
   }
 
   .dress-code-container {
-    width: 100%;
-    padding: 86px 12px 20px;
+    padding: 86px 12px 24px;
   }
 
   .dress-code-inner {
-    gap: 14px;
+    gap: 18px;
   }
 
   .dress-code-title {
-    font-size: clamp(30px, 10vw, 46px);
-    line-height: 0.95;
+    font-size: clamp(32px, 13vw, 50px);
+  }
+
+  .dress-code-image {
+    max-width: 100%;
   }
 
   .dress-code-text-wrap {
@@ -813,7 +896,7 @@
   }
 
   .dress-code-text {
-    font-size: clamp(1rem, 4.8vw, 1.25rem);
+    font-size: clamp(1rem, 4.8vw, 1.2rem);
     line-height: 1.6;
   }
 
@@ -834,23 +917,66 @@
   .nav-links-wedding a {
     font-size: 0.88rem;
   }
+}
 
-  .dress-code-container {
-    padding-top: 78px;
+@media (max-width: 768px) {
+
+  .registry-layout {
+    width: 100%;
+    padding: 40px 20px;
   }
 
-  .dress-code-title {
-    font-size: clamp(26px, 11vw, 40px);
+  .registry-header {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0;
   }
 
-  .dress-code-text-wrap {
-    padding: 28px 14px;
+  .registry-header h1 {
+    font-size: 3rem;
+    line-height: 1;
   }
 
-  .dress-code-text {
-    font-size: 0.98rem;
+  .registry-header p {
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 100%;
+  }
+
+  .serv__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    justify-items: center;
+    padding: 0;
+  }
+
+  .serv__card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .serv__img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .serv__content {
+    padding: 18px;
+  }
+
+  .serv__content h3 {
+    font-size: 2rem;
+  }
+
+  .serv__content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 }
+
 
 
 
