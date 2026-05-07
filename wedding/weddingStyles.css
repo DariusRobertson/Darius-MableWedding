@@ -17,6 +17,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background:
+    linear-gradient(rgba(248,245,241,0.92), rgba(248,245,241,0.92));
+
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .registry-header {
@@ -25,18 +30,51 @@
   margin-bottom: 3rem;
 }
 
+.serv__card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.serv__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+}
+
+.serv__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.serv__content{
+  padding-top: 12px; 
+  text-align: center;
+}
+
+.serv__content h3{
+  font-family: 'MS Madi', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 6px; 
+}
+
+.serv__content p{
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  color: #666; 
+  line-height: 1.5;
+}
+
 .serv__container {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  flex-wrap: wrap;   /* this makes cards wrap only when needed */
+  flex-wrap: wrap;   
   gap: 2rem;
 }
 
 .serv__card {
   width: 260px;
-  flex: 0 0 260px;   /* keeps cards from shrinking tiny */
+  flex: 0 0 260px;  
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
@@ -74,6 +112,7 @@
 
 .dress-code-page .navbar-wedding {
   top: 0px; 
+  
 }
 
 .dress-code-title{
