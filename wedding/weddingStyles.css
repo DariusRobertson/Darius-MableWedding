@@ -6,6 +6,30 @@
     box-sizing: border-box;
 }
 
+.story-page {
+  position: relative;
+  min-height: 100vh;
+  background: #000;
+  overflow: hidden;
+}
+
+.story-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center 40px;
+  z-index: 0;
+  opacity: 1;
+}
+
+.story-page > *:not(.story-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+
 .tracker {
   width: 100%;
   height: 12px;
