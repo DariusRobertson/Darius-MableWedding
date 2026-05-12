@@ -29,7 +29,7 @@ if (rsvpFormButton) {
 
 const STORAGE_KEY = "savedWeddingGuestCode"; 
 const google_sheet_script_url = "https://script.google.com/macros/s/AKfycbz6MrQ473JGAp8umbV9FLF3EiGmhi-p7er3MWLm4RGJsnM3pBDPjFd31_eesL2KH7EY/exec";
-const google_search_name_url = "https://script.google.com/macros/s/AKfycbz4Qbb9WrBhFK-BFC5IcEFlQOQ7KG4zLnow7HB8SCv-KmlmHojHdf6Pkg8s4amGsrqY/exec";
+const google_search_name_url = "https://script.google.com/macros/s/AKfycbzMgNgbdavFlIhQfcOaBIapve1dL_v-Jtb8wxCx4thPIs-gnfxX--u-4oPfZ7HcjhRK/exec";
 
 
 async function loadGuest(){
@@ -43,8 +43,11 @@ async function loadGuest(){
 }
 
 async function searchGuestByName(name){
-    const response = await fetch(google_search_name_url + "?name=" + encodeURIComponent(name));
-    return await response.json();
+  const url = google_search_name_url + "?name=" + encodeURIComponent(name);
+  console.log("Search URL:", url);
+
+  const response = await fetch(url);
+  return await response.json();
 
 }
 
@@ -120,7 +123,13 @@ function updatedAttendance(){
 
 
  async function checkIfAlreadyRSVP(guest){
-  const guestSearch = await searchGuestByName(guest);
+  const nameToSearch = guest.firstName + " " + guest.lastName;
+  const guestSearch = await searchGuestByName(nameToSearch);
+
+  
+  console.log("Searching name:", nameToSearch);
+  console.log("Search result:", guestSearch);
+
   if(guestSearch.found){
     console.log(guestSearch); 
     return false; 
@@ -129,6 +138,7 @@ function updatedAttendance(){
  }
 
 async function sendRSVP(guest) {
+  console.log("guest param: ", guest)
   if(!(await checkIfAlreadyRSVP(guest))){
     rsvpMessage.textContent = "You have already RSVP'd.";
   }else if(!checkRequiredIsFilled(guest)){
