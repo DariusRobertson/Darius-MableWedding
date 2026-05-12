@@ -43,11 +43,14 @@ lookupForm.addEventListener("submit", async function (e) {
 
     try{
         const guests = await loadGuest();
-        const guest = guests.invitees.find(g => normalizeGuestName(g.firstName + " " + g.lastName) === input);
+        const mainGuest = guests.invitees.find(g => normalizeGuestName(g.firstName + " " + g.lastName) === input);
+        const plus1 = guests.invitees.find(g => normalizeGuestName(g.guestName) === input);
 
-        if(guest){
-            localStorage.setItem(STORAGE_KEY, guest.code);
-            window.location.href = `wedding.html?name=${encodeURIComponent(guest.code)}`;
+        const matchedGuest = mainGuest || plus1;
+
+        if(matchedGuest){
+            localStorage.setItem(STORAGE_KEY, matchedGuest.code);
+            window.location.href = `wedding.html?name=${encodeURIComponent(matchedGuest.code)}`;
         }else{
             lookupMessage.textContent = "Name not found, Try your full name or your nickname.";
         }
