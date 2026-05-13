@@ -401,10 +401,10 @@
 
 .detail-text {
   margin-top: 6px;
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-family: "Ms Madi", cursive;
   color: black;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
 }
 
 
@@ -764,7 +764,7 @@
   }
 
   #customMessage {
-    font-size: clamp(1rem, 5vw, 2rem);
+    font-size: clamp(2rem, 5vw, 2rem);
     line-height: 0.95;
     letter-spacing: 0;
   }
