@@ -92,7 +92,7 @@
 
         {
             "firstName": "Claire",
-            "lastName": "Jarrel",
+            "lastName": "Jarrell",
             "plus-1": false,
             "code": "Claire",
             "customMessage": "Claire Bear! You are invited!", 
@@ -213,7 +213,7 @@
             "plus-1": true, 
             "code": "Amanda",
             "customMessage": "Amanda & Dustin, you're invited!",
-            "guestName": "Dustin Yonder"
+            "guestName": "Dustin Yoder"
         }, 
 
         {
@@ -267,7 +267,7 @@
             "plus-1": true, 
             "code": "Lexi",
             "customMessage": "Lexi + Earnest, you're invited!",
-            "guestName": "Earnierst"
+            "guestName": "Ernierst"
         }, 
 
         {
@@ -280,11 +280,11 @@
         }, 
 
         {
-            "firstName": "Yewkiyat",
+            "firstName": "Yewkiat",
             "lastName": "Weber",
             "plus-1": false,
-            "code": "Yewkiyat",
-            "customMessage": "Yewkiyat, you're invited!",
+            "code": "Yewkiat",
+            "customMessage": "Yewkiat, you're invited!",
             "guestName": ""
         }, 
 
