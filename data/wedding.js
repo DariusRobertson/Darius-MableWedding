@@ -138,11 +138,16 @@ function updatedAttendance(){
  }
 
 async function sendRSVP(guest) {
+  rsvpMessage.textContent = "Sending RSVP...";
+  rsvpFormButton.disabled = true;
+  rsvpFormButton.classList.add("loading");
   console.log("guest param: ", guest)
   if(!(await checkIfAlreadyRSVP(guest))){
     rsvpMessage.textContent = "You have already RSVP'd.";
+    rsvpFormButton.classList.remove("loading");
   }else if(!checkRequiredIsFilled(guest)){
     rsvpMessage.textContent = "Please fill out all required fields.";
+    rsvpFormButton.classList.remove("loading");
   }else{
     try {
       const attendance = document.querySelector('input[name="attendance"]:checked')?.value || "";
@@ -201,6 +206,8 @@ async function sendRSVP(guest) {
 
       if (rsvpMessage) {
         rsvpMessage.textContent = "Your RSVP has been submitted!";
+        rsvpFormButton.disabled = false;
+        rsvpFormButton.classList.remove("loading");
       }
 
       form.remove();
@@ -208,6 +215,8 @@ async function sendRSVP(guest) {
       console.error(error);
       if (rsvpMessage) {
         rsvpMessage.textContent = "There was a problem submitting your RSVP.";
+        rsvpFormButton.disabled = false;
+        rsvpFormButton.classList.remove("loading");
       }
     }
   }
