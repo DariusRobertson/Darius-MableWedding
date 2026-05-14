@@ -21,7 +21,7 @@ let guest = null;
 if (rsvpFormButton) {
     rsvpFormButton.addEventListener("click", async function (e) {
         e.preventDefault();
-        const guest = await loadInvite();
+         guest = await loadInvite();
         sendRSVP(guest);
     });
 }
@@ -52,6 +52,7 @@ async function searchGuestByName(name){
 }
 
 function updatedAttendance(){
+    const hasPlusOne = guest && guest["plus-1"] === true;
     if(document.getElementById("decline").checked){
 
         rsvpForm.classList.add("hidden");
@@ -64,11 +65,19 @@ function updatedAttendance(){
 
     if(document.getElementById("accept").checked){
         rsvpForm.classList.remove("hidden");
-        
-        document.getElementsByName("mainCourseGuest2")[0].required = true;    
-        document.getElementsByName("mainCourseGuest2")[1].required = true;
+      if(hasPlusOne){
+        plusOneMealWrap.classList.add("hidden");
+        document.getElementsByName("mainCourseGuest2")[0].required = false;    
+        document.getElementsByName("mainCourseGuest2")[1].required = false;
+      }
+  
+        document.getElementsByName("mainCourseGuest2")[0].required = false;    
+        document.getElementsByName("mainCourseGuest2")[1].required = false;
         document.getElementsByName("mainCourseGuest1")[0].required = true;    
         document.getElementsByName("mainCourseGuest1")[1].required = true;
+        
+
+
         checkGuestCount();
 
         return true; 
@@ -79,22 +88,23 @@ function updatedAttendance(){
 
  }
 
- function checkGuestCount(){
+function checkGuestCount() {
+  const numberOfGuest = parseInt(document.getElementById("guestCount").value);
+  const hasPlusOne = guest && guest["plus-1"] === true;
 
-    const numberOfGuest = parseInt(document.getElementById("guestCount").value);
-    console.log(numberOfGuest);
+  console.log(numberOfGuest);
 
-    if(numberOfGuest === 1){
-        document.getElementsByName("mainCourseGuest2")[0].required = false;    
-        document.getElementsByName("mainCourseGuest2")[1].required = false;
-        plusOneMealWrap.classList.add("hidden");
-    }else{
-        document.getElementsByName("mainCourseGuest2")[0].required = true;    
-        document.getElementsByName("mainCourseGuest2")[1].required = true;
-        plusOneMealWrap.classList.remove("hidden");
-    }
+  if (!hasPlusOne && numberOfGuest === 1) {
+    document.getElementsByName("mainCourseGuest2")[0].required = false;
+    document.getElementsByName("mainCourseGuest2")[1].required = false;
+    plusOneMealWrap.classList.add("hidden");
+  } else {
+    document.getElementsByName("mainCourseGuest2")[0].required = true;
+    document.getElementsByName("mainCourseGuest2")[1].required = true;
+    plusOneMealWrap.classList.remove("hidden");
+  }
+}
 
- }
 
  function checkRequiredIsFilled(guest){
   const guestCount = document.getElementById("guestCount").value;
@@ -110,10 +120,12 @@ function updatedAttendance(){
 
   console.log("guestMeal2: ", needsGuest2Meal);
 
-  const requiredFields = [
-    guestCount !== "",
-    guestMeal1 !== "",
-    !needsGuest2Meal || guestMeal2 !== "",
+const hasPlusOne = guest["plus-1"] === true;
+
+const requiredFields = [
+  !hasPlusOne || guestCount !== "",
+  guestMeal1 !== "",
+  !needsGuest2Meal || guestMeal2 !== "",
   ]; 
 
   console.log(requiredFields);
@@ -158,14 +170,22 @@ async function sendRSVP(guest) {
       const guestCountInput = document.getElementById("guestCount");
       const dietaryNotes = document.getElementById("dietaryNotes");
       
-      const plusOneName = guest["plus-1"] ? guest.guestName : "None";
-
       let guestCount; 
       if (attendance === "decline") {
         guestCount = 0; 
       }else{
         guestCount = guestCountInput && guestCountInput.value ? Number(guestCountInput.value) : 1;
       }
+
+      const plusOneIncluded =
+      guest["plus-1"] === true && Number(guestCount) === 2;
+
+      const plusOneName = plusOneIncluded ? guest.guestName : "None";
+
+      if (!plusOneIncluded) {
+        plusOneMealWrap.classList.add("hidden");
+    }
+
 
       const payload = {
         guestCode: guest.code || "",
@@ -174,7 +194,7 @@ async function sendRSVP(guest) {
         guestCount: guestCount,
         plusOneName: plusOneName,
         guestMeal1: guestMeal1,
-        guestMeal2: guestMeal2,
+        guestMeal2: plusOneIncluded ? guestMeal2 : "None",
         dietaryNotes: dietaryNotes ? dietaryNotes.value.trim() : "None"
       };
 
