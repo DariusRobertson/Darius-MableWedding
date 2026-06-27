@@ -129,10 +129,10 @@
         {
             "firstName": "Alexis",
             "lastName": "Martohue", 
-            "plus-1": false, 
+            "plus-1": true, 
             "code": "Alexis-2",
             "customMessage": "Alexis, You are invited!", 
-            "guestName":""
+            "guestName":"Alexis Martohue's Plus 1"
         }, 
 
         {
@@ -304,7 +304,19 @@
             "code": "Darius",
             "customMessage": "its our wedding!!",
             "guestName": "Mable Henry"
+        },
+
+        {
+        "firstName": "Nik",
+        "lastName": "Tran",
+        "plus-1": true,
+        "code": "Nik",
+        "customMessage": "Nik, Youre invited!",
+        "guestName": "Your Plus 1"
+
         }
+
+
 
     ]
 }
