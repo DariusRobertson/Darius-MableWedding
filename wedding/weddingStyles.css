@@ -1,0 +1,1063 @@
+.container1-wedding::before {
+  content: none !important;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+
+button.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+  position: relative;
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+
+button.loading::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle;
+}
+
+.story-page {
+  position: relative;
+  min-height: 100vh;
+  background: #000;
+  overflow: hidden;
+}
+
+.story-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center 40px;
+  z-index: 0;
+  opacity: 1;
+}
+
+.story-page > *:not(.story-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+
+.tracker {
+  width: 100%;
+  height: 12px;
+  background: #e5e5e5;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 18px;
+}
+
+.tracker-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7ec8c9, #4da6a8);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+  min-width: 0;
+}
+
+.tracker-text {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+
+.registry-header {
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+  padding: 60px 20px 20px;
+  margin: 0 auto 3rem;
+}
+
+.registry-header h1{
+  margin: 0 auto;
+  font-family: 'Ms Madi', cursive;
+  font-size: 4.5rem;
+  
+}
+
+.registry-header p{
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.registry-layout {
+  min-height: calc(100vh - 80px);
+  padding: 70px 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:
+    linear-gradient(rgba(248,245,241,0.92), rgba(248,245,241,0.92));
+
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.serv__card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.serv__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+}
+
+.serv__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.serv__content{
+  padding-top: 12px; 
+  text-align: center;
+}
+
+.serv__content h3{
+  font-family: 'MS Madi', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 6px; 
+}
+
+.serv__content p{
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  color: #666; 
+  line-height: 1.5;
+}
+
+.serv__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;   
+  gap: 2rem;
+}
+
+.serv__card {
+  width: 260px;
+  flex: 0 0 260px;  
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  border: 1px solid #eee;
+  overflow: hidden;
+  background: lightgray;
+}
+
+.serv__img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.invite-hero {
+  background: #f4f1ed;
+  padding-top: 70px;
+}
+
+.faq-section{
+  background-color: #111;
+  color: #f6f6f6;
+  padding: 80px 10%;
+}
+
+.faq-section::before {content: none;}
+
+.faq-section h2{
+  font-size: 1.8rem;
+  margin-bottom: 60px;
+  border-bottom:2px solid rgba(255,255,255,0.2);
+  padding-bottom: 10px;
+}
+
+.dress-code-page .navbar-wedding {
+  top: 0px; 
+  
+}
+
+.dress-code-title{
+  margin: 0;
+  max-width: 8ch;
+  font-family: "Ms Madi", cursive;
+  font-size: clamp(44px, 5vw, 82px);
+  line-height: 0.92;
+  text-align: left;
+  color: #111;
+
+}
+
+.dress-code-container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  padding: 80px 8%;
+  padding-top: 110px;
+  padding-bottom: 40px;
+}
+
+
+.dress-code-inner {
+  display: grid;
+  grid-template-columns: 140px 560px;
+  gap: 10px;
+  align-items: start;
+
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.dress-code-title-wrap {
+  width: 360px;
+  justify-self: end;
+  position: relative;
+  left: 40px;
+  z-index: 2;
+}
+
+.dress-code-image-wrap {
+  min-width: 0;
+  width: 100%;
+}
+
+.dress-code-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.dress-code-text-wrap{
+  background-color: #111;
+  color: #f6f6f6;
+  padding: 80px 10%;
+}
+
+.dress-code-text{
+  font-family: "Lora", serif;
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.dress-code-text a {
+  color: inherit;
+  text-decoration: underline; 
+}
+
+.invite-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10vh;
+  background-image: url("../images/mable-darius1.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 35%;
+  overflow: hidden;
+}
+
+
+.invite-image-wrap {
+  position: relative;
+  width: 100%;
+  height: calc(100svh - 70px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.invite-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.invite-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+
+.invite-name-block {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  text-align: center;
+  z-index: 2;
+  pointer-events: none;
+  
+}
+
+#customMessage {
+  margin: 0;
+  color: black;
+  font-family: "Ms Madi", cursive;
+  font-style: normal;
+  font-size: clamp(3rem, 2vw, 1.6rem);
+  line-height: 1.15;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+
+.lookup-card{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.lookup-card input{
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+}
+ 
+.lookup-card button{ 
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #f8d7c4;
+  cursor: pointer;
+}
+
+.lookup-card form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.container1-wedding{
+    background-image: url("../images/Mable-darius-invite-draw.jpg");
+    place-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom: 2px solid #1a1a1a;
+
+    background-size: cover;
+    background-position: center 45%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.ivite-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto; 
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.what-when-where-section {
+    width: 100%;
+    padding: 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  
+}
+
+.what-when-where-section-1 {
+    width: 100%;
+    padding: 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.detail-block {
+  text-align: center;
+}
+
+.detail-title {
+  font-family: "Ms Madi", cursive;
+  font-size: 2rem;
+  font-style: bold;
+  color: #efc1a6;
+  margin: 0;
+}
+
+.detail-text {
+  margin-top: 6px;
+  font-size: 2rem;
+  font-family: "Ms Madi", cursive;
+  color: black;
+  letter-spacing: 1px;
+}
+
+
+.detail-divider {
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #111,
+    transparent
+  );
+  opacity: 0.5;
+}
+
+.meal-heading{
+  display: inline-block;
+  margin-bottom: 8px;
+  font-family: "Ms Madi", cursive;
+  font-size: 2rem;
+  color: #7d675e;
+}
+
+.rsvp-section {
+  width: 100%;
+  margin-top: 28px; 
+}
+
+.rsvp-card {
+  width: min(700px, 92%);
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.rsvp-heading {
+  margin: 0 0 18px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.3rem, 4vw, 4rem);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.rsvp-subtext {
+  margin: 0 0 34px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+  color: rgba(45, 42, 38, 0.72);
+}
+
+.rsvp-line-block {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 28px;
+  text-align: left;
+}
+
+.number-of-guests {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 28px;
+  text-align: left;
+}
+
+.rsvp-script-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-family: "Ms Madi", cursive;
+  font-size: 2rem;
+  color: #7d675e;
+}
+
+.rsvp-line-text,
+.rsvp-line-input,
+.rsvp-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.18);
+  border-radius: 0;
+  padding: 8px 2px 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.35rem;
+  color: #2d2a26;
+  box-shadow: none;
+}
+
+.rsvp-line-input:focus,
+.rsvp-textarea:focus {
+  outline: none;
+  border-bottom-color: #b98f77;
+}
+
+.rsvp-textarea {
+  resize: vertical;
+  min-height: 70px;
+  line-height: 1.5;
+}
+
+.rsvp-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0,0,0,0.10);
+  margin: 18px 0 30px;
+}
+
+.rsvp-choice-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  width: fit-content;
+  margin: 0 auto 34px;
+}
+
+.rsvp-choice {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  color: #3a342f;
+}
+
+
+.rsvp-choice-meal {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: "Cookie", cursive;
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  color: #3a342f;
+}
+
+.rsvp-choice input[type="radio"] {
+  width: 19px;
+  height: 19px;
+  accent-color: #b98f77;
+}
+
+.rsvp-note {
+  margin: 18px 0 16px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  color: rgba(45, 42, 38, 0.72);
+}
+
+.rsvp-submit {
+  margin-top: 12px;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.16);
+  color: #2d2a26;
+  padding: 12px 22px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.rsvp-submit:hover {
+  background: rgba(0,0,0,0.03);
+}
+
+.rsvp-message {
+  margin-top: 18px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  color: #7d675e;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.radio-group input[type="radio"] {
+  accent-color: #f8d7c4;
+  transform: scale(1.2);
+}
+
+.radio-option {
+  color: #2c2c2c; /* FIX: readable */
+  font-weight: 500;
+}
+
+.radio-option.accept {
+  color: #2e7d32; /* elegant green */
+}
+
+.radio-option.decline {
+  color: #a94442; /* soft red */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 14px;
+  border: 1px solid #d8d0c7;
+  border-radius: 10px;
+  font: inherit;
+}
+
+.rsvp-btn {
+  align-self: flex-start;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #8f7d74;
+  color: white;
+  cursor: pointer;
+}
+
+.form-group textarea {
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+}
+
+.rsvp-btn:hover {
+  opacity: 0.95;
+}
+
+.rsvp-message {
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+.hidden {
+  display: none;
+}
+
+.navbar-wedding{
+  position: fixed; 
+  top: 0;
+  left: 0; 
+  width: 100%;
+  padding: 18px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,.35); 
+  backdrop-filter: blur(6px); 
+  color: white; 
+  z-index: 1000;
+}
+
+.nav-links-wedding{
+  list-style: none;
+  display: flex;
+  gap: 100px; 
+  margin: 0; 
+  padding: 0.5px; 
+}
+
+.nav-links-wedding a{
+  text-decoration: none;
+  color: white; 
+  font-weight: 500;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.nav-links-wedding a:hover {color: #f8d7c4;}
+
+
+
+/* Mobile changes */
+
+@media (max-width: 600px) {
+  .rsvp-card {
+    padding: 22px 18px;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .rsvp-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .lookup-card form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lookup-card input,
+  .lookup-card button {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .lookup-card h1 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .invite-hero {
+    padding-top: 60px;
+  }
+
+  .invite-wrapper {
+    max-width: 100%;
+    padding: 12px;
+  }
+
+  .invite-image-wrap {
+    width: 100%;
+  }
+
+  .invite-name-block {
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 58%;
+    z-index: 2;
+  }
+
+  #customMessage {
+    font-size: clamp(2rem, 5vw, 2rem);
+    line-height: 0.95;
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .rsvp-card {
+    padding: 34px 22px 30px;
+  }
+
+  .rsvp-heading {
+    font-size: clamp(2rem, 9vw, 3rem);
+    letter-spacing: 0.14em;
+  }
+
+  .rsvp-subtext,
+  .rsvp-note {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .rsvp-choice {
+    font-size: 1.15rem;
+  }
+
+  .rsvp-script-label {
+    font-size: 1.6rem;
+  }
+
+  .rsvp-line-text,
+  .rsvp-line-input,
+  .rsvp-textarea {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: var(--nav-h);     
+  }
+
+  .navbar-wedding {
+    height: var(--nav-h);
+    padding: 8px 16px;
+    justify-content: center;
+  }
+
+  .nav-links-wedding {
+    gap: 24px;                    
+  }
+
+  .nav-links-wedding a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .dress-code-container {
+    width: min(1000px, 94%);
+    padding-top: 100px;
+  }
+
+  .dress-code-inner {
+    grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
+    gap: 24px;
+    left: 0;
+  }
+
+  .dress-code-title-wrap {
+    left: 0;
+    padding: 0;
+  }
+
+  .dress-code-title {
+    font-size: clamp(36px, 5vw, 64px);
+    max-width: 8ch;
+  }
+
+  .dress-code-text-wrap {
+    padding: 60px 7%;
+  }
+
+  .dress-code-text {
+    font-size: clamp(1.25rem, 2vw, 1.8rem);
+  }
+}
+
+/* Mobile / small tablet */
+@media (max-width: 850px) {
+  .dress-code-container {
+    width: 100%;
+    padding: 95px 20px 32px;
+  }
+
+  .dress-code-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+  }
+
+  .dress-code-title-wrap {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    left: 0;
+  }
+
+  .dress-code-title {
+    margin: 0 auto;
+    max-width: none;
+    text-align: center;
+    font-size: clamp(38px, 10vw, 64px);
+    line-height: 0.95;
+  }
+
+  .dress-code-image-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .dress-code-image {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+  }
+
+  .dress-code-text-wrap {
+    padding: 48px 7%;
+  }
+
+  .dress-code-text {
+    font-size: clamp(1.05rem, 3vw, 1.45rem);
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .dress-code-text h1,
+  .dress-code-text h2,
+  .dress-code-text h3 {
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .navbar-wedding {
+    padding: 12px 14px;
+  }
+
+  .nav-links-wedding {
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links-wedding a {
+    font-size: 0.95rem;
+  }
+
+  .dress-code-container {
+    padding: 86px 12px 24px;
+  }
+
+  .dress-code-inner {
+    gap: 18px;
+  }
+
+  .dress-code-title {
+    font-size: clamp(32px, 13vw, 50px);
+  }
+
+  .dress-code-image {
+    max-width: 100%;
+  }
+
+  .dress-code-text-wrap {
+    padding: 34px 18px;
+  }
+
+  .dress-code-text {
+    font-size: clamp(1rem, 4.8vw, 1.2rem);
+    line-height: 1.6;
+  }
+
+  .dress-code-text p,
+  .dress-code-text h1,
+  .dress-code-text h2,
+  .dress-code-text h3 {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav-links-wedding {
+    gap: 12px;
+  }
+
+  .nav-links-wedding a {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .registry-layout {
+    width: 100%;
+    padding: 40px 20px;
+  }
+
+  .registry-header {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0;
+  }
+
+  .registry-header h1 {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .registry-header p {
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 100%;
+  }
+
+  .serv__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    justify-items: center;
+    padding: 0;
+  }
+
+  .serv__card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .serv__img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .serv__content {
+    padding: 18px;
+  }
+
+  .serv__content h3 {
+    font-size: 2rem;
+  }
+
+  .serv__content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+
+
+
+

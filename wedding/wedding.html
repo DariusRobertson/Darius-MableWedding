@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Darius and Mable’s Wedding</title>
+  <link rel="stylesheet" href="../mable-party/style.css" />
+  <link rel="stylesheet" href="weddingStyles.css"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Ms+Madi&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Ms+Madi&display=swap" rel="stylesheet">
+  
+</head>
+<script src="../data/wedding.js" defer></script>
+
+<body class="page syncopate-regular">
+
+<nav class="navbar-wedding">
+    <ul class="nav-links-wedding">
+      <li><a href="wedding.html" class="syncopate-regular">RSVP</a></li>
+      <li><a href="dressCode.html" class="syncopate-regular">Dress Code</a></li>
+      <li><a href="ourStory.html" class="syncopate-regular">Our Story</a></li>
+      <li><a href="registry.html" class="syncopate-regular">Registry</a></li>
+      <li><a href="FAQ.html" class="syncopate-regular">FAQ</a></li>
+    </ul>
+</nav>
+
+<section class="invite-hero">
+    <div class="invite-image-wrap">
+      <img 
+        src="../images/Mable-darius-invite-draw.jpg"
+        alt="Wedding invitation artwork"
+        class="invite-image"
+      />
+      <div class="invite-name-block">
+        <h1 id="customMessage"></h1>
+      </div>
+    </div>
+    <div class="invite-wrapper">
+        <section class="what-when-where-section">
+            <div class="detail-block">
+              <h3 class="detail-title">What</h3>
+              <p class="detail-text">Come see an intimate screening of our private vows, 
+                followed by a plant-based multi-course dinner and an unforgettable night of live music and celebration. 
+              </p>
+            </div>
+          </section>
+
+      <div class="detail-divider"></div>
+
+      <section class="what-when-where-section-1">
+        <div class="detail-block">
+          <h3 class="detail-title">Where</h3>
+          <p class="detail-text">Realm Denver, 3851 Steele St Suite 1398, Denver, CO 80205</p>
+        </div>
+      </section>
+
+      <div class="detail-divider"></div>
+
+      <section class="what-when-where-section">
+        <div class="detail-block">
+          <h3 class="detail-title">When</h3>
+          <p class="detail-text">Saturday, November 14th, 2026</p>
+          <p class="detail-text">5:30 PM - 10:00 PM</p>
+        </div>
+      </section>
+      <div class="detail-divider"></div>
+
+
+      <section class="rsvp-section">
+        <div class="rsvp-card">
+              <h2 class="rsvp-heading"> RSVP</h2>
+              <p class="rsvp-subtext">
+                Please RSVP by <br>
+                July 1st, 2026
+              </p>
+
+                <div class="rsvp-line-block">
+                  <label for="guestDisplayName" class="rsvp-script-label">For</label>
+                  <p class="rsvp-line-text"><span id="guestDisplayName"></span>  <span id="plusOne"></span></p>
+                </div>
+
+                <div class="rsvp-choice-group">
+                  <label class="rsvp-choice">
+                    <input type="radio" name="attendance" value="accept" id="accept" required>
+                    <span>Accepts with pleasure</span>
+                  </label>
+
+                  <label class="rsvp-choice">
+                    <input type="radio" name="attendance" value="decline"  id="decline" required>
+                    <span>Declines with regret</span>
+                  </label>
+                </div> 
+          
+          <section class="rsvp-form-section" id="rsvpForm">
+            <div class="number-of-guests hidden" id="numberOfGuest">
+                <label for="guestCount" class="rsvp-script-label">Number of guests attending</label>
+                <input type="number" id="guestCount" name="guestCount" min="1" max="2" class="rsvp-line-input" required>
+            </div>
+
+            <p class="rsvp-note">
+              Please Select your main course option 
+            </p>
+                
+            <div class="meal-section" id="mealSection">
+                <h4 class="meal-heading"><span id="guestMealName"></span>'s main course</h4>
+                <div class="rsvp-choice-group">
+                  <label class="rsvp-choice-meal">
+                    <input type="radio" name="mainCourseGuest1" value="SweetPotato" required>
+                    <span>Sweet Potato & Mushroom Stuffed Cabage, Apple Puree, Crispy Brussels, Red Wine</span>
+                  </label>
+
+                  <label class="rsvp-choice-meal">
+                    <input type="radio" name="mainCourseGuest1" value="Lentil" required>
+                    <span>Beluga Lentil Stuffed Honey Nut Squash, Roasted Carrot, Celeraic Root Puree, Pecan Gremolata</span>
+                  </label>
+                </div>    
+              </div>  
+
+              <div id="plusOneMealWrap" class="meal-section hidden">
+                <h4 class="meal-heading"><span id="plusOneMealName"></span>'s main course</h4>
+                <div class="rsvp-choice-group">
+                  <label class="rsvp-choice-meal">
+                    <input type="radio" name="mainCourseGuest2" value="SweetPotato" required>
+                    <span>Sweet Potato & Mushroom Stuffed Cabage, Apple Puree, Crispy Brussels, Red Wine</span>
+                  </label>
+
+                  <label class="rsvp-choice-meal">
+                    <input type="radio" name="mainCourseGuest2" value="Lentil" required>
+                    <span>Beluga Lentil Stuffed Honey Nut Squash, Roasted Carrot, Celeraic Root Puree, Pecan Gremolata</span>
+                  </label>
+                </div> 
+              </div>
+
+
+            <p class="rsvp-note ">
+              Please add any dietary restrictions or allergies. Keep in mind this 
+              will be a 100% vegan menu. Including drinks. You can also just leave a note here for us.  
+            </p>
+              <textarea 
+              id="dietaryNotes"
+              name="dietaryNotes"
+              rows="3"
+              class="rsvp-textarea"
+              placeholder=""
+              ></textarea>
+          </section>
+
+            <button type="submit" form="rsvpForm" class="rsvp-submit" id="rsvpFormButton">Send RSVP</button>
+            <p class="rsvp-message" id="rsvpMessage"></p>
+
+
+
+        </div>
+      </section>
+    </div>
+</section>
