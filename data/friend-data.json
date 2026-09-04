@@ -218,7 +218,7 @@
 
         {
             "firstName": "Kevin",
-            "lastName": "Cheny",
+            "lastName": "Cheney",
             "plus-1": true,
             "code": "kevin",
             "customMessage": "Kevin and Reena, you're invited!",
@@ -322,6 +322,15 @@
         "code": "Justin",
         "customMessage": "Justin, better get readu to paty!",
         "guestName": ""
+        }, 
+
+        {
+            "firstName": "Josh",
+            "lastName": "Bailey",
+            "plus-1": false,
+            "code": "Josh",
+            "customMessage": "USA! USA! USA!",
+            "guestName": ""
         }
 
 
