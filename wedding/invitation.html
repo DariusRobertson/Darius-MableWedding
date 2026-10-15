@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Invitation</title>
+
+  <link rel="stylesheet" href="../mable-party/style.css" />
+  <link rel="stylesheet" href="weddingStyles.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <main class="invite-page">
+    <section class="lookup-card">
+      <p class="weddingInvite">Wedding Invitation</p>
+
+      <h1>Find your wedding invite</h1>
+
+      <p>Enter in your full name to get your personal invitation</p>
+
+      <form id="lookupForm" class="lookup-form">
+        <input
+          id="guestName"
+          name="guestName"
+          type="text"
+          placeholder="Enter your full name"
+          autocomplete="name"
+          required
+        />
+        <button type="submit" style="font-weight: bold;">Find Invite</button>
+      </form>
+
+      <p id="lookupMessage" class="lookup-message" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script src="../data/invitation.js" defer></script>
+</body>
+</html>
