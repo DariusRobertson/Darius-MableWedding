@@ -218,7 +218,7 @@
 
         {
             "firstName": "Kevin",
-            "lastName": "Cheny",
+            "lastName": "Cheney",
             "plus-1": true,
             "code": "kevin",
             "customMessage": "Kevin and Reena, you're invited!",
@@ -320,16 +320,16 @@
         "lastName": "Duffy",
         "plus-1": false,
         "code": "Justin",
-        "customMessage": "Justin, better get readu to paty!",
+        "customMessage": "Justin, better get ready to paty!",
         "guestName": ""
         }, 
 
         {
-            "firstName": "Taylor",
-            "lastName": "Doiron",
+            "firstName": "Josh",
+            "lastName": "Bailey",
             "plus-1": false,
-            "code": "Taylor",
-            "customMessage": "The dog is reactive!",
+            "code": "Josh",
+            "customMessage": "USA! USA! USA!",
             "guestName": ""
         }
     ]
