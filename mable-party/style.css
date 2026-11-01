@@ -146,6 +146,18 @@ html, body {
   margin-right: auto;        
 }
 
+.packinglist-title{
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #f6f6f6; 
+  width: min(900px, 90%);      
+  max-width: 900px;
+  text-align: center;       
+  margin-left: auto;         
+  margin-right: auto;        
+}
+
+
 
 .itinerary-grid {
   display: flex;
@@ -155,6 +167,15 @@ html, body {
   width: min(900px, 90%);      
   margin-left: auto;
   margin-right: auto;
+}
+
+.color-scheme{
+  display: block;
+  width: 100%;
+  max-width: auto;
+  height: auto;
+  margin: 12px 0;
+  object-fit: contain;
 }
 
 
